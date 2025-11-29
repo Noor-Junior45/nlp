@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Lucky Pharma | Hanwara's Trusted Medical Store</title>
+    <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWTGZW86NL"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QWTGZW86NL');
+  
+         // Custom event tracking for pharmacy interactions
+         window.trackPharmacyEvent = function(eventName, eventData = {}) 
+         {
+            gtag('event', eventName, eventData);
+         };
+        </script>
+
+    <meta name="description" content="New Lucky Pharma in Hanwara, Jharkhand. Your trusted source for authentic medicines, health supplements, and personal care products.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="/favicon.svg" color="#16a34a">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <!-- Additional formats for broader compatibility -->
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'shine': 'shine 1.5s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite', // Slower, softer pulse
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        shine: {
+                            '100%': { left: '125%' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base Reveal Animation (Fluid and long transition) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); /* Custom smooth ease */
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar dynamic styles */
+        .navbar-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(22, 163, 74, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Staggered delays */
+        .reveal-delay-100 { transition-delay: 0.1s; }
+        .reveal-delay-200 { transition-delay: 0.2s; }
+        .reveal-delay-300 { transition-delay: 0.3s; }
+        .reveal-delay-400 { transition-delay: 0.4s; }
+
+        /* Magic Focus Animation */
+        @keyframes magicGlow {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); border-color: transparent; }
+            50% { box-shadow: 0 0 30px 10px rgba(34, 197, 94, 0.3); border-color: #22c55e; }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); border-color: transparent; }
+        }
+
+        .magic-focus {
+            animation: magicGlow 1.5s ease-out;
+            position: relative;
+            z-index: 10;
+            border-radius: 1rem;
+        }
+
+        /* Shine Effect for Buttons */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+            transform: skewX(-25deg);
+            animation: shine 3s infinite; /* Slowed down for subtlety */
+        }
+        @keyframes shine {
+            100% { left: 125%; }
+        }
+
+        /* Hover Lift Physics (Enhanced) */
+        .hover-lift-smooth {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; /* Overshoot curve */
+        }
+        .hover-lift-smooth:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Call Button Animation (Wiggle on Load/Focus) */
+        .call-btn-animated {
+            animation: wiggle 0.5s ease-in-out 3; /* Wiggle 3 times on load */
+        }
+
+        /* Popup Animation */
+        .popup-enter {
+            animation: popupIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes popupIn {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        
+        /* Chat Widget Animations */
+        .chat-slide-in {
+            animation: slideInUp 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 transition-all duration-300 border-b border-transparent" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-2 md:gap-3 group">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjW16NO-HcOCgjkAneSgknSZdMMp2TPGJ0qlrjqsiXALg1VuaQ0=s265-w265-h265" 
+                     alt="New Lucky Pharma Logo" 
+                     class="h-8 md:h-10 w-auto object-contain rounded group-hover:rotate-6 transition-transform duration-500">
+                <span class="text-lg md:text-2xl font-bold tracking-tight text-medical-800 leading-tight">New Lucky Pharma</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none p-2 rounded-lg hover:bg-medical-50 transition">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#home" class="nav-link hover:text-medical-600 transition hover:-translate-y-0.5 duration-300">Home</a>
+                <a href="#about" class="nav-link hover:text-medical-600 transition hover:-translate-y-0.5 duration-300">About</a>
+                <a href="#products" class="nav-link hover:text-medical-600 transition hover:-translate-y-0.5 duration-300">Products</a>
+                <a href="#services" class="nav-link hover:text-medical-600 transition hover:-translate-y-0.5 duration-300">Services</a>
+                <a href="#contact" class="nav-link hover:text-medical-600 transition hover:-translate-y-0.5 duration-300">Contact</a>
+                <!-- CORRECTED: Restoring the Directions link -->
+                <a href="#map-location" class="nav-link text-medical-600 font-bold hover:text-medical-700 transition flex items-center cursor-pointer hover:scale-105 duration-300">
+                    <i class="fas fa-map-marker-alt mr-1"></i> Directions
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-100 p-4 shadow-xl absolute w-full left-0 top-full transform transition-all duration-300 origin-top scale-y-0 opacity-0" style="transition: transform 0.3s ease-out, opacity 0.3s ease-out;">
+            <a href="#home" class="block py-3 px-4 text-gray-700 hover:bg-medical-50 hover:text-medical-600 rounded-lg transition font-medium nav-link"><i class="fas fa-home w-6"></i> Home</a>
+            <a href="#about" class="block py-3 px-4 text-gray-700 hover:bg-medical-50 hover:text-medical-600 rounded-lg transition font-medium nav-link"><i class="fas fa-info-circle w-6"></i> About</a>
+            <a href="#products" class="block py-3 px-4 text-gray-700 hover:bg-medical-50 hover:text-medical-600 rounded-lg transition font-medium nav-link"><i class="fas fa-pills w-6"></i> Products</a>
+            <a href="#services" class="block py-3 px-4 text-gray-700 hover:bg-medical-50 hover:text-medical-600 rounded-lg transition font-medium nav-link"><i class="fas fa-notes-medical w-6"></i> Services</a>
+            <a href="#contact" class="block py-3 px-4 text-gray-700 hover:bg-medical-50 hover:text-medical-600 rounded-lg transition font-medium nav-link"><i class="fas fa-phone w-6"></i> Contact</a>
+            <!-- CORRECTED: Keeping Call Us separate or updating to Directions -->
+            <a href="#map-location" class="block py-3 px-4 text-medical-700 bg-medical-50 hover:bg-medical-100 rounded-lg transition font-bold cursor-pointer"><i class="fas fa-map-marked-alt w-6"></i> Directions</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-24 bg-gradient-to-r from-medical-50 via-white to-medical-50 animate-gradient-x overflow-hidden scroll-mt-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left z-10 reveal">
+                <span class="inline-block py-1 px-3 rounded-full bg-medical-100 text-medical-800 text-sm font-semibold mb-4 shadow-sm hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-check-circle mr-1"></i> Hanwara's Trusted Chemist
+                </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                    Your Health is Our <br>
+                    <span class="text-medical-600">Top Priority</span>
+                </h1>
+                <p class="text-base md:text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
+                    Providing authentic medicines, healthcare products, and professional guidance to the Hanwara community. Open 7 days a week.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full sm:w-auto">
+                    <button
+                         type="button"
+                         data-call-number="+919798881368"
+                         class="btn-shine bg-medical-600 hover:bg-medical-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-lg flex items-center justify-center w-full sm:w-auto transform active:scale-95 hover:-translate-y-1 call-btn-animated">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Now
+                    </button>
+                    <!-- UPDATED: Changed from button/scroll to link to Google Business -->
+                    <a href="https://www.google.com/search?q=New+Lucky+Pharma+Hanwara+Jharkhand" 
+                       target="_blank" 
+                       rel="noopener"
+                       class="bg-white border-2 border-medical-600 text-medical-600 hover:bg-medical-50 font-bold py-3 px-8 rounded-lg transition flex items-center justify-center w-full sm:w-auto transform active:scale-95 hover:-translate-y-1 nav-link">
+                        <i class="fas fa-store mr-2"></i> Visit Store
+                    </a>
+                    <!-- END UPDATE -->
+                </div>
+            </div>
+            
+            <!-- Hero Illustration with Float Animation -->
+            <div class="md:w-1/2 flex justify-center w-full reveal reveal-delay-200">
+                <div class="relative animate-float">
+                    <div class="absolute bottom-0 left-0 -ml-4 -mb-4 w-32 h-32 bg-medical-200 rounded-full opacity-50 blur-xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl relative z-10 max-w-sm w-full border border-white/50">
+                        <div class="flex items-center space-x-4 mb-6 hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                            <div class="bg-medical-100 p-3 rounded-full">
+                                <i class="fas fa-heartbeat text-2xl text-medical-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Health Checkup</h3>
+                                <p class="text-sm text-gray-500">Regular monitoring</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mb-6 hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-prescription-bottle-alt text-2xl text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Genuine Medicines</h3>
+                                <p class="text-sm text-gray-500">100% Authentic</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 hover:scale-[1.03] transition-transform duration-300 cursor-default">
+                            <div class="bg-orange-100 p-3 rounded-full">
+                                <i class="fas fa-user-nurse text-2xl text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl">Expert Advice</h3>
+                                <p class="text-sm text-gray-500">Qualified Pharmacists</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Info Cards -->
+    <section id="about" class="py-12 bg-white scroll-mt-24">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="reveal p-6 bg-gray-50 rounded-xl border border-gray-100 hover-lift-smooth text-center">
+                    <i class="fas fa-hospital-user text-4xl text-medical-600 mb-4 transition-transform duration-500 hover:rotate-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Professional Service</h3>
+                    <p class="text-gray-600">Experienced pharmacists providing the right guidance for your medication and wellness needs.</p>
+                </div>
+                <div class="reveal reveal-delay-100 p-6 bg-gray-50 rounded-xl border border-gray-100 hover-lift-smooth text-center">
+                    <i class="fas fa-map-marked-alt text-4xl text-medical-600 mb-4 transition-transform duration-500 hover:scale-110"></i>
+                    <h3 class="text-xl font-bold mb-2">Easy Location</h3>
+                    <p class="text-gray-600">Located conveniently on Main Road, Hanwara (814154). Easy to reach for all local residents.</p>
+                </div>
+                <div class="reveal reveal-delay-200 p-6 bg-gray-50 rounded-xl border border-gray-100 hover-lift-smooth text-center">
+                    <i class="fas fa-award text-4xl text-medical-600 mb-4 transition-transform duration-500 hover:rotate-6"></i>
+                    <h3 class="text-xl font-bold mb-2">Authentic Products</h3>
+                    <p class="text-gray-600">We stock only genuine, certified medicines from trusted manufacturers and suppliers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-medical-50 scroll-mt-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Products & Medicines</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a wide range of pharmaceutical products, from daily essentials to specific treatments.</p>
+            </div>
+
+            <!-- Product Grid (Restored all 16 original cards) -->
+            <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 min-h-[400px]">
+                
+                <!-- Product Card 1: Paracetamol -->
+                <div class="product-card reveal bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="paracetamol">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://d1ymz67w5raq8g.cloudfront.net/Pictures/2000xAny/1/2/0/532120_paracetamolbackgroundinformationcoverimage_807319_crop.jpg" alt="Paracetamol" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Paracetamol</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Effective fever reducer and pain reliever. Popular brands include Dolo 650, Crocin, and Calpol.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Cough Syrup -->
+                <div class="product-card reveal reveal-delay-100 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="cough syrup">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://images.ctfassets.net/kytey10holgp/5FPrOzDkawr1lGCLvYYFGP/2b44fafe8505a7e413a048226a7b3ebc/thumbnail_Benedryl_201.jpg?fm=webp&w=3840" alt="Benadryl Cough Syrup" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Cough Syrup</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Relief for dry, wet, and allergic coughs. Stocking Benadryl, Corex, and other trusted syrups.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Horlicks -->
+                <div class="product-card reveal reveal-delay-200 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="horlicks">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://lh3.googleusercontent.com/fb7jMmrNPApgI4evL2h8mKB0aPrWmbmB1QSd_xhaSfQPOi4YoOqZAT_P3EegvCQW18w53Y8JZMmKYTfv=s265-w265-h265" alt="Horlicks" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Horlicks</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Nutritious malt drink for energy and growth. Available in various flavors and sizes.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: SBL Homeopathy -->
+                <div class="product-card reveal reveal-delay-300 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="sbl homeopathy">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://homeobasket.com/wp-content/uploads/2023/04/Belladonna-3.jpg" alt="SBL Homeopathy" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">SBL Homeopathy</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Wide range of SBL dilutions, tonics, and bio-chemic medicines for natural healing.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 5: First Aid -->
+                <div class="product-card reveal reveal-delay-400 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="first aid">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="First Aid" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">First Aid</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Antiseptic lotions (Dettol, Savlon), bandages, cotton, and immediate wound care kits.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 6: Antibiotics (MISSING, RESTORING) -->
+                <div class="product-card reveal bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="antibiotics">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeMj3HS5XkhB0-mS1asr7y9OoXKqUMgyfSqA&s" alt="Antibiotics" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Antibiotics</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Full range of tablets, syrups, and capsules. Available strictly with a valid doctor's prescription.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 7: Injections & Syringes (MISSING, RESTORING) -->
+                <div class="product-card reveal reveal-delay-100 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="injections syringes">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://apthorprx.com/wp-content/uploads/2022/01/apthorp-rx-Ignorance-About-Injections-Why-Some-Medications-Are-In-Shot-Form.jpg" alt="Injections" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Injections & Syringes</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Sterile equipment and injectable medications. All injections require a valid doctor's prescription.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 8: Vitamins -->
+                <div class="product-card reveal reveal-delay-200 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="vitamins">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-wellness-centrum/en_US/sliced-images/global/articles/how-supplements-and-multivitamins-work-together-image.jpg?auto=format" alt="Vitamins" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Vitamins</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Daily multivitamins and supplements like Becosules, Shelcal, and other essential nutrients.</p>
+                    </div>
+                </div>
+                
+                <!-- Product Card 9: Pain Relief -->
+                <div class="product-card reveal reveal-delay-300 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="pain relief">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://cdn01.pharmeasy.in/dam/products_otc/183157/volini-pain-relief-gel-tube-of-75-g-6.1-1712726723.jpg" alt="Pain Relief" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Pain Relief</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Topical ointments and sprays like Volini, Iodex, and Moov for muscle and joint pain relief.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 10: Baby Care -->
+                <div class="product-card reveal reveal-delay-400 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="baby care essentials">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/51-lpxBJF+L._AC_UF894,1000_QL80_.jpg" alt="Baby Care Essentials" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Baby Care</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Essential products from brands like Himalaya, Johnson's, and Pampers for gentle care.</p>
+                    </div>
+                </div>
+                
+                <!-- Product Card 11: Honey (MISSING, RESTORING) -->
+                <div class="product-card reveal bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="honey">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://1mg-gumlet.s3.amazonaws.com/sku_star_content_images%2F2025-01%2F1736841598_0.jpg" alt="Dabur Honey" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Honey</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Pure and natural Dabur Honey and other trusted honey brands for health and immunity.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 12: ORS -->
+                <div class="product-card reveal reveal-delay-100 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="ors electral">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=1080/da/cms-assets/cms/product/f91b13a0-11d8-4b6f-8391-12933bbbcea7.png" alt="ORS Electral" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">ORS (Electral)</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Oral Rehydration Salts to restore fluids. Stocking Electral, Walyte, and other rehydration solutions.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 13: Antacid -->
+                <div class="product-card reveal reveal-delay-200 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="antacid">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://www.jiomart.com/images/product/original/896033/digene-acidity-gas-relief-gel-orange-flavour-450-ml-prod-o896033-p608297991-5-202403020021.jpg?im=Resize=(420,420)" alt="Antacid Digene" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Antacid</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Quick relief from acidity and gas. Gel and tablet options available, including Digene and Gelusil.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 14: Glucose (MISSING, RESTORING) -->
+                <div class="product-card reveal reveal-delay-300 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="glucose">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://www.silkrute.com/images/detailed/2918/51PV-cKFk6L.jpg" alt="Glucon-D" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Glucose</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Instant energy drink powder to combat fatigue. Brands include Glucon-D and other high-energy mixes.</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 15: Dettol (MISSING, RESTORING) -->
+                <div class="product-card reveal reveal-delay-400 bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="dettol">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://m.media-amazon.com/images/I/81cGrLhIrJL._AC_UF350,350_QL80_.jpg" alt="Dettol Antiseptic" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Dettol</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Trusted antiseptic liquid for first aid, cleaning, and personal hygiene. Dettol soaps and handwash also available.</p>
+                    </div>
+                </div>
+                
+                <!-- Product Card 16: Thermometer (MISSING, RESTORING) -->
+                <div class="product-card reveal bg-white rounded-lg shadow-md hover-lift-smooth overflow-hidden flex flex-col h-full group" data-name="thermometer">
+                    <div class="overflow-hidden h-32 sm:h-48 p-4">
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240514234837/Clinical-Thermometer-Diagram-copy.webp" alt="Digital Thermometer" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-4 sm:p-5 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1">
+                            <h3 class="font-bold text-sm sm:text-lg text-gray-800">Thermometer</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-600">Digital thermometers for accurate fever monitoring. Essential for every home first aid kit.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white scroll-mt-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 reveal group overflow-hidden rounded-2xl">
+                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pharmacy Shelf" class="rounded-2xl shadow-xl w-full object-cover h-64 md:h-96 transform transition duration-700 group-hover:scale-105">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 reveal">Complete Healthcare Services</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start reveal reveal-delay-100 hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-medical-100 flex items-center justify-center mt-1 animate-pulse-slow">
+                                <i class="fas fa-file-medical text-medical-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Prescription Fulfillment</h3>
+                                <p class="text-gray-600">Accurate and timely dispensing of medicines prescribed by your doctor.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start reveal reveal-delay-200 hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-medical-100 flex items-center justify-center mt-1 animate-pulse-slow" style="animation-delay: 0.5s">
+                                <i class="fas fa-baby text-medical-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Baby & Mother Care</h3>
+                                <p class="text-gray-600">Everything you need for mother and baby health, from supplements to hygiene.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start reveal reveal-delay-300 hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-medical-100 flex items-center justify-center mt-1 animate-pulse-slow" style="animation-delay: 1s">
+                                <i class="fas fa-leaf text-medical-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Homeopathic Care</h3>
+                                <p class="text-gray-600">Authorized stockist of SBL World Class Homeopathy and other trusted brands.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Us Today - Bento Grid Layout (REORDERED) -->
+    <section id="contact" class="py-20 bg-medical-50 scroll-mt-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Visit Us Today</h2>
+                <p class="text-lg text-gray-600">We are open every day to serve your healthcare needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- 1. Contact Info & Call Button (Formerly Box 3) -->
+                <div class="reveal bg-white rounded-3xl p-8 shadow-lg border border-medical-100 hover-lift-smooth flex flex-col justify-between relative z-10">
+                    <div>
+                        <div class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-6 text-blue-600">
+                            <i class="fas fa-headset text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center group">
+                                <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-3 group-hover:bg-medical-50 transition">
+                                    <i class="fas fa-phone-alt text-gray-400 group-hover:text-medical-600"></i>
+                                </span>
+                                <a href="tel:+919199749447" class="text-lg font-medium text-gray-700 hover:text-medical-600 transition">+91 91997 49447</a>
+                            </li>
+                            <li class="flex items-center group">
+                                <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-3 group-hover:bg-medical-50 transition">
+                                    <i class="fas fa-phone-alt text-gray-400 group-hover:text-medical-600"></i>
+                                </span>
+                                <a href="tel:+919798881368" class="text-lg font-medium text-gray-700 hover:text-medical-600 transition">+91 97988 81368</a>
+                            </li>
+                            <li class="flex items-center group">
+                                <span class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-3 group-hover:bg-medical-50 transition">
+                                    <i class="fas fa-envelope text-gray-400 group-hover:text-medical-600"></i>
+                                </span>
+                                <a href="mailto:newluckypharmacy@gmail.com" class="text-base font-medium text-gray-700 hover:text-medical-600 transition">newluckypharmacy@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button
+                         type="button"
+                         data-call-number="+919798881368"
+                         class="btn-shine mt-8 block w-full py-4 bg-medical-600 text-white font-bold text-xl text-center rounded-xl hover:bg-medical-700 transition shadow-lg call-btn-animated">
+                         <i class="fas fa-phone-volume mr-2"></i> Call Now
+                    </button>
+                </div>
+
+                <!-- 2. Opening Hours (Formerly Box 2) -->
+                <div class="reveal reveal-delay-100 bg-white rounded-3xl p-8 shadow-lg border border-medical-100 hover-lift-smooth">
+                    <div class="bg-medical-100 w-14 h-14 rounded-full flex items-center justify-center mb-6 text-medical-600">
+                        <i class="far fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Opening Hours</h3>
+                    <div class="space-y-4">
+                        <!-- Regular Days -->
+                        <div class="border-b border-gray-100 pb-3">
+                            <p class="font-bold text-medical-700 mb-2 text-sm uppercase tracking-wide">Mon - Sun (Except Fri)</p>
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>Morning</span>
+                                <span class="font-bold text-gray-800">6:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span>Evening</span>
+                                <span class="font-bold text-gray-800">1:00 PM - 9:00 PM</span>
+                            </div>
+                        </div>
+
+                        <!-- Friday -->
+                        <div>
+                            <p class="font-bold text-medical-700 mb-2 text-sm uppercase tracking-wide">Friday</p>
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>Morning</span>
+                                <span class="font-bold text-gray-800">6:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span>Evening</span>
+                                <span class="font-bold text-gray-800">2:00 PM - 9:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-green-100 text-green-800 py-2 px-4 rounded-lg text-center font-semibold text-sm">
+                        <i class="fas fa-check-circle mr-2"></i> Open 7 Days a Week
+                    </div>
+                </div>
+                
+                <!-- 3. Feedback (Formerly Box 4) -->
+                <div class="reveal reveal-delay-200 bg-white rounded-3xl p-8 shadow-lg border border-medical-100 hover-lift-smooth flex flex-col justify-between">
+                    <div>
+                        <div class="bg-yellow-100 w-14 h-14 rounded-full flex items-center justify-center mb-6 text-yellow-600">
+                            <i class="fas fa-star text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">We Value You</h3>
+                        <p class="text-gray-600 mb-6">Your feedback helps us serve the Hanwara community better. Rate your experience!</p>
+                        
+                        <div class="flex text-yellow-400 text-xl mb-6 space-x-1 group">
+                            <i class="fas fa-star transition hover:scale-125"></i>
+                            <i class="fas fa-star transition hover:scale-125 delay-75"></i>
+                            <i class="fas fa-star transition hover:scale-125 delay-100"></i>
+                            <i class="fas fa-star transition hover:scale-125 delay-150"></i>
+                            <i class="fas fa-star transition hover:scale-125 delay-200"></i>
+                        </div>
+                    </div>
+
+                    <a href="https://www.google.com/search?q=New+Lucky+Pharma+Hanwara+Jharkhand" target="_blank" rel="noopener" class="flex items-center justify-center w-full py-3 bg-white text-gray-700 border-2 border-gray-100 font-bold rounded-xl hover:bg-gray-50 transition shadow-sm group hover:scale-105 duration-300">
+                        <!-- Official Google G Logo SVG -->
+                        <svg class="w-6 h-6 mr-2" viewBox="0 0 48 48">
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                            <path fill="#34A853" d="M24 48c6.48 0 12.01-2.19 15.98-5.96l-7.73-6c-2.15 1.45-4.92 2.3-8.25 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                            <path fill="none" d="M0 0h48v48H0z"></path>
+                        </svg>
+                        Review on Google
+                    </a>
+                </div>
+
+                <!-- 4. Payment Modes (Formerly Box 5) -->
+                <div class="reveal reveal-delay-300 bg-white rounded-3xl p-8 shadow-lg border border-medical-100 hover-lift-smooth flex flex-col justify-between">
+                    <div>
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mb-6 text-purple-600">
+                            <i class="fas fa-wallet text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Easy Payments</h3>
+                        <p class="text-gray-600 mb-6">Pay securely at the store. We accept Cash and all major UPI apps.</p>
+                        
+                        <div class="space-y-4">
+                            <!-- Cash Option -->
+                            <div class="flex items-center p-3 bg-green-50 rounded-xl border border-green-100 hover:bg-green-100 transition duration-300">
+                                <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3 group-hover:bg-medical-50 transition">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <span class="font-bold text-gray-700 text-sm">Cash Accepted</span>
+                            </div>
+
+                            <!-- UPI Logos -->
+                            <div class="p-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-purple-200 transition duration-300">
+                                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Scan & Pay via</p>
+                                <div class="flex flex-wrap gap-3 items-center">
+                                    <!-- Google Pay -->
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png" alt="Google Pay" class="h-4 object-contain opacity-80 hover:opacity-100 transition hover:scale-110">
+                                    
+                                    <!-- Divider -->
+                                    <div class="h-3 w-px bg-gray-300"></div>
+                                    
+                                    <!-- PhonePe -->
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/512px-PhonePe_Logo.svg.png" alt="PhonePe" class="h-4 object-contain opacity-80 hover:opacity-100 transition hover:scale-110">
+                                    
+                                    <!-- Divider -->
+                                    <div class="h-3 w-px bg-gray-300"></div>
+
+                                    <!-- Paytm -->
+                                    <img src="https://assetscdn1.paytm.com/images/catalog/view/310944/1654517453942.png" alt="Paytm" class="h-3 object-contain opacity-80 hover:opacity-100 transition hover:scale-110">
+
+                                    <!-- Divider -->
+                                    <div class="h-3 w-px bg-gray-300"></div>
+                                    
+                                    <!-- UPI Generic -->
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/512px-UPI-Logo.svg.png" alt="UPI" class="h-4 object-contain opacity-80 hover:opacity-100 transition hover:scale-110">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Store Photo & Google Link (Formerly Box 1) -->
+                <a 
+                    href="https://www.google.com/search?q=New+Lucky+Pharma+Hanwara+Jharkhand" 
+                    target="_blank" 
+                    rel="noopener" 
+                    class="reveal reveal-delay-400 bg-white rounded-3xl overflow-hidden shadow-lg border-2 border-medical-100 hover-lift-smooth col-span-1 md:col-span-2 lg:col-span-2 group cursor-pointer"
+                    style="min-height: 250px;">
+                    <div class="h-full w-full relative">
+                        <!-- Placeholder Image (Using the same image URL found in your original code) -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                            alt="Exterior Photo of New Lucky Pharma Store" 
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                        <!-- Overlay Text -->
+                        <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 transition-all duration-300 group-hover:bg-black/20">
+                            <h3 class="text-2xl font-bold text-white mb-1 flex items-center">
+                                <i class="fas fa-camera mr-2 text-medical-400"></i>
+                                View Store Photos
+                            </h3>
+                            <p class="text-sm text-gray-200">See our latest profile photos and reviews on Google.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- 6. Map Location (Formerly Box 6) -->
+                <div id="map-location" class="reveal reveal-delay-500 col-span-1 md:col-span-2 lg:col-span-2 h-auto min-h-[320px] rounded-3xl overflow-hidden shadow-lg border border-medical-100 hover-lift-smooth relative group scroll-mt-24">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        id="gmap_canvas" 
+                        src="https://maps.google.com/maps?q=New%20Lucky%20Pharma%2C%20Hanwara%2C%20Jharkhand&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        class="w-full h-full"
+                        style="filter: contrast(1.1);">
+                    </iframe>
+                    
+                    <!-- Get Directions Button -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=New+Lucky+Pharma+Hanwara+Jharkhand" target="_blank" class="absolute bottom-4 left-4 bg-medical-600 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-medical-700 transition transform hover:-translate-y-1 flex items-center z-10 border-2 border-white btn-shine">
+                        <i class="fas fa-directions mr-2"></i> Get Directions
+                    </a>
+
+                    <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-gray-100 transform translate-y-20 group-hover:translate-y-0 transition-transform duration-300 hidden sm:block">
+                        <p class="font-bold text-gray-800 text-sm"><i class="fas fa-map-pin text-red-500 mr-2"></i>Hanwara, Jharkhand</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">&copy; 2025 New Lucky Pharma. All rights reserved.</p>
+            <p class="text-sm">Serving the Hanwara community with pride.</p>
+        </div>
+    </footer>
+
+    <!-- Welcome Pop-up Modal -->
+    <div id="welcome-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4 backdrop-blur-sm bg-black/60 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-sm w-full p-6 relative transform scale-95 transition-all duration-300 modal-content" id="modal-content">
+            <!-- Close Button -->
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none transition bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="text-center pt-2">
+                <div class="w-16 h-16 bg-medical-100 rounded-full flex items-center justify-center mx-auto mb-4 text-medical-600 animate-pulse-slow">
+                    <i class="fas fa-hand-holding-medical text-3xl"></i>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Welcome to<br>New Lucky Pharma!</h3>
+                <p class="text-gray-600 mb-6 text-sm">
+                    Your trusted health partner in Hanwara. We are open 7 days a week to serve you with genuine medicines.
+                </p>
+
+                <div class="space-y-3">
+                    <button id="dismiss-btn" class="btn-shine block w-full py-3 bg-medical-600 hover:bg-medical-700 text-white font-bold rounded-xl shadow-lg transition transform hover:-translate-y-1">
+                        Browse Website
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Pharmacist FAB -->
+    <button id="ai-fab" class="fixed bottom-6 right-6 z-[90] bg-gradient-to-r from-medical-600 to-medical-500 hover:from-medical-700 hover:to-medical-600 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110 group animate-pulse-slow">
+        <span class="absolute -top-1 -right-1 flex h-4 w-4">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-4 w-4 bg-yellow-500"></span>
+        </span>
+        <i class="fas fa-robot text-2xl group-hover:rotate-12 transition duration-300"></i>
+        <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none shadow-lg">
+            ✨ AI Pharmacist
+        </span>
+    </button>
+
+    <!-- AI Chat Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-[100] hidden flex items-end sm:items-center justify-center px-0 sm:px-4 backdrop-blur-sm bg-black/50 transition-opacity duration-300">
+        <div class="bg-white w-full sm:max-w-md h-[85vh] sm:h-[600px] sm:rounded-3xl rounded-t-3xl shadow-2xl flex flex-col transform transition-transform duration-300 translate-y-full sm:translate-y-0 scale-95 sm:scale-100" id="ai-chat-container">
+            
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-medical-600 to-medical-500 p-4 flex items-center justify-between sm:rounded-t-3xl rounded-t-3xl">
+                <div class="flex items-center gap-3">
+                    <div class="bg-white/20 p-2 rounded-full backdrop-blur-sm">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-lg">AI Pharmacist ✨</h3>
+                        <p class="text-medical-100 text-xs flex items-center">
+                            <span class="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse-slow"></span> Online
+                        </p>
+                    </div>
+                </div>
+                <button id="close-ai-btn" class="text-white/80 hover:text-white transition p-2 hover:bg-white/10 rounded-full">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Chat Area -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 scroll-smooth">
+                <!-- Welcome Message -->
+                <div class="flex items-start gap-3 chat-slide-in">
+                    <div class="w-8 h-8 rounded-full bg-medical-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-medical-600 text-sm"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 max-w-[80%]">
+                        <p class="text-sm text-gray-700">Hello! 👋 I'm your AI Pharmacist assistant. <br><br>Ask me about: <br>💊 Medicine uses <br>🤒 Common symptoms <br>🌿 Home remedies <br><br><em>Note: I am an AI, not a doctor. Please consult a professional for serious advice.</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 bg-white border-t border-gray-100">
+                <form id="chat-form" class="flex gap-2 relative">
+                    <input type="text" id="user-input" placeholder="Type your health question..." class="flex-1 bg-gray-100 border-0 rounded-full px-5 py-3 focus:ring-2 focus:ring-medical-500 focus:bg-white transition text-sm outline-none">
+                    <button type="submit" class="bg-medical-600 hover:bg-medical-700 text-white w-12 h-12 rounded-full flex items-center justify-center transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <p class="text-center text-[10px] text-gray-400 mt-2">Powered by Gemini AI ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu, Animations & Popup -->
+    <script type="module">
+        
+        // --- Utility Functions ---
+        // Small toast/snackbar for user-visible errors (Used in chat logic)
+        function showToast(message, duration = 5000) {
+            let container = document.getElementById('ai-toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'ai-toast-container';
+                container.style.position = 'fixed';
+                container.style.bottom = '24px';
+                container.style.left = '50%';
+                container.style.transform = 'translateX(-50%)';
+                container.style.zIndex = '110';
+                document.body.appendChild(container);
+            }
+
+            const toast = document.createElement('div');
+            toast.className = 'ai-toast';
+            toast.textContent = message;
+            toast.style.background = 'rgba(17,24,39,0.95)';
+            toast.style.color = 'white';
+            toast.style.padding = '10px 16px';
+            toast.style.borderRadius = '10px';
+            toast.style.boxShadow = '0 6px 18px rgba(0,0,0,0.2)';
+            toast.style.marginTop = '8px';
+            toast.style.fontSize = '13px';
+            toast.style.maxWidth = '90vw';
+            toast.style.textAlign = 'center';
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.transition = 'transform 220ms ease, opacity 220ms ease';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+                setTimeout(() => toast.remove(), 240);
+            }, duration);
+        }
+
+        // --- Navbar Scroll Shadow ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-shadow');
+            } else {
+                navbar.classList.remove('navbar-shadow');
+            }
+        });
+
+        // --- Mobile Menu Logic ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            const isHidden = menu.classList.toggle('hidden');
+            if (!isHidden) {
+                // Animate in: remove scale and opacity classes
+                setTimeout(() => {
+                    menu.classList.remove('scale-y-0', 'opacity-0');
+                }, 10);
+            } else {
+                // Animate out: add scale and opacity classes
+                menu.classList.add('scale-y-0', 'opacity-0');
+                // Wait for animation to finish before adding 'hidden'
+                setTimeout(() => {
+                    if (menu.classList.contains('scale-y-0')) {
+                        menu.classList.add('hidden');
+                    }
+                }, 300); 
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('scale-y-0', 'opacity-0');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            });
+        });
+
+        // --- Magic Animation Logic for Anchor Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Only prevent default if it's NOT the Google Business link (which should open in a new tab)
+                if (this.getAttribute('href') !== 'https://www.google.com/search?q=New+Lucky+Pharma+Hanwara+Jharkhand') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+
+                        // Add magic class for pulse effect
+                        targetElement.classList.add('magic-focus');
+                        
+                        // Remove class after animation completes so it can be triggered again
+                        setTimeout(() => {
+                            targetElement.classList.remove('magic-focus');
+                        }, 1500); // Matches the animation duration
+                    }
+                }
+            });
+        });
+
+        // --- Pop-up Logic ---
+        window.addEventListener('load', () => {
+            const modal = document.getElementById('welcome-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeBtn = document.getElementById('close-modal-btn');
+            const dismissBtn = document.getElementById('dismiss-btn');
+            
+            // Function to close modal with vanish effect
+            const closeModal = () => {
+                if(modal.classList.contains('hidden')) return; // Avoid double closure
+                modalContent.classList.remove('popup-enter');
+                modal.classList.add('opacity-0');
+
+                // Animate out
+                modalContent.style.opacity = '0';
+                modalContent.style.transform = 'scale(0.9)';
+                
+                // Hide the modal container after the animation finishes
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    // Reset styles for next time
+                    modal.classList.remove('opacity-0'); 
+                    modalContent.style.opacity = ''; 
+                    modalContent.style.transform = ''; 
+                }, 300);
+            };
+            
+            // Function to initiate the modal 
+            const initiateModal = () => {
+                modal.classList.remove('hidden');
+                
+                // Trigger enter transition
+                requestAnimationFrame(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100', 'popup-enter');
+                });
+                
+                // Set the automatic close timer (5 seconds)
+                // --- MODIFIED HERE: 15000ms -> 5000ms ---
+                setTimeout(closeModal, 5000); 
+            }
+
+            // Show modal after 1.5 seconds
+            setTimeout(initiateModal, 1500);
+
+            closeBtn.addEventListener('click', closeModal);
+            dismissBtn.addEventListener('click', closeModal);
+            
+            // Close if clicking outside the white box
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // --- Scroll Animation Logic (Intersection Observer) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- CALL BUTTON HANDLER (Centralized) ---
+        const callButtons = document.querySelectorAll("[data-call-number]");
+        const welcomeModalEl = document.getElementById("welcome-modal");
+
+        callButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const number = btn.getAttribute("data-call-number");
+
+                // Hide welcome modal if it's still open so it doesn't block clicks
+                if (welcomeModalEl && !welcomeModalEl.classList.contains("hidden")) {
+                    // Use the existing closeModal function if available, otherwise hide directly
+                    const closeModal = document.getElementById('close-modal-btn')?.onclick || (() => welcomeModalEl.classList.add("hidden"));
+                    closeModal();
+                }
+
+                // Track click for analytics
+                if (window.trackPharmacyEvent) {
+                    window.trackPharmacyEvent('call_now_click', {
+                        phone_number: number,
+                        location: btn.closest('section')?.id || 'hero_section'
+                    });
+                }
+
+                // Trigger device dialer
+                window.location.href = `tel:${number}`;
+            });
+        });
+
+        /* ----------------------------------------------------------------
+           EXISTING CHAT LOGIC (Using Google Gemini)
+           ---------------------------------------------------------------- */
+        
+        // AI Chat Logic
+        const aiFab = document.getElementById('ai-fab');
+        const aiModal = document.getElementById('ai-modal');
+        const closeAiBtn = document.getElementById('close-ai-btn');
+        const aiContainer = document.getElementById('ai-chat-container');
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const submitBtn = chatForm.querySelector('button');
+
+        // Toggle Chat Modal
+        function toggleChat() {
+            const isHidden = aiModal.classList.contains('hidden');
+            if (isHidden) {
+                aiModal.classList.remove('hidden');
+                // Animate In
+                requestAnimationFrame(() => {
+                    aiContainer.classList.remove('translate-y-full', 'scale-95');
+                });
+                userInput.focus();
+            } else {
+                // Animate Out
+                aiContainer.classList.add('translate-y-full', 'scale-95');
+                setTimeout(() => {
+                    aiModal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        aiFab.addEventListener('click', toggleChat);
+        closeAiBtn.addEventListener('click', toggleChat);
+        aiModal.addEventListener('click', (e) => {
+            if (e.target === aiModal) toggleChat();
+        });
+
+        // Add Message to UI
+        function addMessage(text, isUser = false) {
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-3 chat-slide-in ${isUser ? 'flex-row-reverse' : ''}`;
+            
+            const icon = isUser ? 
+                `<div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0"><i class="fas fa-user text-gray-600 text-sm"></i></div>` :
+                `<div class="w-8 h-8 rounded-full bg-medical-100 flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-medical-600 text-sm"></i></div>`;
+            
+            const bubble = `<div class="${isUser ? 'bg-medical-600 text-white rounded-tr-none' : 'bg-white text-gray-700 rounded-tl-none border border-gray-100'} p-3 rounded-2xl shadow-sm max-w-[80%] text-sm">
+                ${text}
+            </div>`;
+
+            div.innerHTML = icon + bubble;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        // Add Loading Indicator (restored simple version)
+        function addLoading() {
+            const div = document.createElement('div');
+            div.id = 'ai-loading';
+            div.className = `flex items-start gap-3 chat-slide-in`;
+            div.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-medical-100 flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-medical-600 text-sm"></i></div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 flex gap-1">
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return div;
+        }
+        
+
+        // Small spinner in the submit button to show loading
+        function showSpinner() {
+            if (!submitBtn) return;
+            if (!submitBtn.dataset.origHtml) submitBtn.dataset.origHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg>`;
+        }
+
+        function hideSpinner() {
+            if (!submitBtn) return;
+            submitBtn.disabled = false;
+            if (submitBtn.dataset.origHtml) {
+                submitBtn.innerHTML = submitBtn.dataset.origHtml;
+            }
+        }
+
+          // Call backend AI endpoint (Node.js) instead of calling Gemini directly from frontend
+        async function callGemini(query) {
+            // Implements exponential backoff for retries
+            const maxRetries = 3;
+            let currentDelay = 1000;
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch("/api/ai", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ query }),
+                    });
+
+                    // Attempt to parse JSON (API returns JSON reply)
+                    const data = await response.json().catch((e) => {
+                        console.error('Failed to parse JSON from /api/ai', e);
+                        return null;
+                    });
+
+                    if (response.ok) {
+                         // Success!
+                        const reply = (data && data.reply) || "I'm not sure how to answer that safely. Please visit our store for advice.";
+                        return reply;
+                    }
+                    
+                    // Handle rate limiting or temporary errors by retrying
+                    if (response.status === 429 || response.status >= 500) {
+                        if (i < maxRetries - 1) {
+                            await new Promise(resolve => setTimeout(resolve, currentDelay));
+                            currentDelay *= 2; // Exponential backoff
+                            continue;
+                        }
+                    }
+
+                    // For non-retriable errors (400s, 500 on last try)
+                    console.error('AI API HTTP error', response.status, data);
+                    const msg = (data && data.reply) || "Sorry, the AI service is unavailable right now. Please call the shop.";
+                    showToast(msg);
+                    return msg;
+                    
+                } catch (error) {
+                    console.error("AI API Error:", error);
+                    if (i < maxRetries - 1) {
+                         await new Promise(resolve => setTimeout(resolve, currentDelay));
+                         currentDelay *= 2;
+                         continue;
+                    }
+                    const msg = "Sorry, I'm having trouble connecting right now. Please call our shop directly! 📞";
+                    showToast(msg);
+                    return msg;
+                }
+            }
+            
+            // Fallback if all retries fail
+            const finalMsg = "I'm sorry, I'm unable to connect to the AI service after multiple tries. Please call us directly.";
+            showToast(finalMsg);
+            return finalMsg;
+        }
+
+        // Handle Submit
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, true);
+            userInput.value = '';
+            // UI loading states
+            showSpinner();
+            const loadingEl = addLoading();
+
+            // The aiResponse now contains the string with <br> tags from the server
+            const aiResponse = await callGemini(text);
+
+            loadingEl.remove();
+            hideSpinner();
+            
+            // We use insertAdjacentHTML to render the <br> tags as actual breaks
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-3 chat-slide-in`;
+            
+            const icon = `<div class="w-8 h-8 rounded-full bg-medical-100 flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-medical-600 text-sm"></i></div>`;
+            
+            const bubble = `<div class="bg-white text-gray-700 rounded-tl-none border border-gray-100 p-3 rounded-2xl shadow-sm max-w-[80%] text-sm">
+                ${aiResponse}
+            </div>`;
+
+            div.innerHTML = icon + bubble;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        });
+
+    </script>
+</body>
+</html>
