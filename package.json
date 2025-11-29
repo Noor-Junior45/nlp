@@ -1,0 +1,26 @@
+{
+  "name": "new-lucky-pharma",
+  "version": "1.0.0",
+  "description": "New Lucky Pharma website with secure AI backend and Google Analytics",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": [
+    "pharmacy",
+    "medical",
+    "ai-chatbot",
+    "express",
+    "nodejs"
+  ],
+  "author": "New Lucky Pharma",
+  "license": "MIT"
+}
